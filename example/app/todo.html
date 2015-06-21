@@ -55,13 +55,31 @@
 			return res;
 		};	
 	});
+	
+	app.directive('myBadge', function(){
+		return {
+			restrict: 'E',
+			scope: {
+				count: '=',
+			},
+			template: '<span class="label"  ng-hide="count == 0" ng-class="warningLevelClass()">{{count}}</span>',
+			link: function(scope, element, attr){
+				scope.warningLevelClass = function(){
+					if(scope.count > 2)
+						return "label-warning";
+			
+					return "label-success";
+				}
+			}
+		};
+	});
 	</script>
 	
 </head>
 <body ng-controller="TodoCtrl">
     <div class="page-header">
 		<h1>{{username}}'s To Do List
-		<span class="label" ng-class="warningLevelClass()" ng-hide="incompleteCount() == 0">{{incompleteCount()}}</span>
+		<my-badge count="incompleteCount()"/>
 		</h1>
     </div>
     <div class="panel">
