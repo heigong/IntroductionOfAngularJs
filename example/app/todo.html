@@ -12,7 +12,13 @@
 		// Add your code here
 	var app = angular.module('TodoList', []);
 	app.controller('TodoCtrl', function($scope){
-		$scope.username = "John"
+		$scope.username = "John";
+		
+		$scope.tasks = [{ "action": "Buy Flowers", "done": false },
+ 	 	  	{ "action": "Get Shoes", "done": false },
+ 	   		{ "action": "Collect Tickets", "done": true },
+  	  		{ "action": "Give a talk", "done": true },
+			{ "action": "Call Joe", "done": true }];
 	});
 	</script>
 	
@@ -36,21 +42,10 @@
                 </tr>
             </thead>
             <tbody>
-				<tr>
-					<td>Buy Flowers</td>
-					<td>false</td>
-				</tr>
-				<tr>
-					<td>Call Joe</td>
-					<td>false</td>
-				</tr>
-				<tr>
-					<td>Collect Tickets</td>
-					<td>true</td>
-				</tr>
-				<tr>
-					<td>Get Shoes</td>
-					<td>false</td>
+				<tr ng-repeat="task in tasks">
+					<td>{{task.action}}</td>
+					<td><input type="checkbox" ng-model="task.done"></td>
+					<td>{{task.done}}</td>
 				</tr>
 			</tbody>
 		</table>
