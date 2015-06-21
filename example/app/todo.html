@@ -11,14 +11,12 @@
 	<script>
 		// Add your code here
 	var app = angular.module('TodoList', []);
-	app.controller('TodoCtrl', function($scope){
+	app.controller('TodoCtrl', function($scope, $http){
 		$scope.username = "John";
 		
-		$scope.tasks = [{ "action": "Buy Flowers", "done": false },
- 	 	  	{ "action": "Get Shoes", "done": false },
- 	   		{ "action": "Collect Tickets", "done": true },
-  	  		{ "action": "Give a talk", "done": true },
-			{ "action": "Call Joe", "done": true }];
+		$http.get('todo/todo.json').success(function(data){
+			$scope.tasks = data;
+		});
 			
 			$scope.incompleteCount = function(){
 				var count = 0;
@@ -44,7 +42,6 @@
     <div class="page-header">
 		<h1>{{username}}'s To Do List
 		<span class="label" ng-class="warningLevelClass()" ng-hide="incompleteCount() == 0">{{incompleteCount()}}</span>
-		<span class="label" ng-class="warningLevelClass()" ng-show="incompleteCount() > 0">{{incompleteCount()}}</span>
 		</h1>
     </div>
     <div class="panel">
