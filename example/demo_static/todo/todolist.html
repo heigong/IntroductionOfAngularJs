@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-				<tr ng-repeat="item in tasks | filteredItems : showChecked | orderBy: 'action'">
+				<tr ng-repeat="item in tasks | filteredTasks : showChecked | orderBy: 'action'">
 					<td>{{item.action}}</td>
 					<td><input type="checkbox" ng-model="item.done"></td>
 					<td>{{item.done}}</td>
