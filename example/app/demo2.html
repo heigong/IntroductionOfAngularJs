@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- To show basic of html, javascript and css -->
+    <title>Simple Calculator - Demo 2</title>
+	
+	<!-- CSS block -->
+	<!-- Sequence matter -->
+ 	<link href="demo1/style.css" rel="stylesheet" />
+	<link href="bootstrap.css" rel="stylesheet" />
+	<link href="bootstrap-theme.css" rel="stylesheet" />
+	<!--<link href="demo1/style.css" rel="stylesheet" />-->
+	<style>
+	/* target to class */
+	.blue {
+		color: #0000ff;
+	}
+	
+	</style>
+	
+	<!-- Javascript block-->
+	<!-- <script src="jsdemo1.js" /> won't work-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="demo1/script.js"></script>
+	<script>
+	function calculate(){
+		var p1 = $('#p1');
+		var p2 = $('.p2');
+		
+		var res = $('[name=res]');
+		
+		var sum = parseInt(p1.val()) + parseInt(p2.val());
+		res.val(sum); 
+	}
+	</script>
+</head>
+<body>
+    <h2>
+		This is a simple calculator
+	</h2>
+	<div class="form-inline">
+		<input class="form-control" id="p1" type="text" value="1"/> +
+		<input class="p2 form-control" type="text" value="2"/> = 
+		<input class="form-control" name="res" type="text">
+		<input class="btn btn-success" type="button" value="Run" onclick="calculate();"></button>
+	</div>
+</body>
+</html>

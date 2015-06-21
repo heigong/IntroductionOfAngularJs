@@ -1,0 +1,19 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": " A simple todo list application write in AngularJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "AngularJs",
+    "TodoList"
+  ],
+  "author": "Di Chen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.4",
+    "serve-static": "^1.10.0"
+  }
+}

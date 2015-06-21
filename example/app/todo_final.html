@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="MyToDoList">
+<head>
+	<!-- To show basic of html, javascript and css -->
+    <title>TODO List</title>
+	<link href="bootstrap.css" rel="stylesheet" />
+	<link href="bootstrap-theme.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="angular.js"></script>
+	<script src="todo/app.js"></script>
+	<script src="todo/controllers.js"></script>
+	<script src="todo/directives.js"></script>
+	<script src="todo/filters.js"></script>
+	
+</head>
+<body ng-controller="MyController">
+    <div class="page-header">
+		<h1>{{username}}'s To Do List
+			<my-badge count="incompleteCount()"/>
+		</h1>
+    </div>
+   	<to-do-list tasks="tasks"></to-do-list>
+</body>
+</html>

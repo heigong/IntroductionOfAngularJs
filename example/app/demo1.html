@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- To show basic of html, javascript and css -->
+    <title>Simple Calculator - Demo 1</title>
+	
+	<!-- CSS block -->
+ 	<link href="demo1/style.css" rel="stylesheet" />
+	<style>
+	/* target to class */
+	.red {
+		color: #00ff00;
+	}
+	
+	</style>
+	
+	<!-- Javascript block-->
+	<!-- <script src="jsdemo1.js" /> won't work-->
+	<script src="demo1/script.js"></script>
+	<script>
+	function calculate(){
+		var p1 = document.getElementById('p1');
+		var p2 = document.getElementById('p2');
+		
+		var res = document.getElementById('res');
+		
+		//res.value = p1.value + p2.value;
+		res.value = parseInt(p1.value) + parseInt(p2.value);
+	}
+	</script>
+
+</head>
+<body>
+    <h2>
+		This is a simple calculator
+	</h2>
+	<input id="p1" type="text" value="3"/> +
+	<input id="p2" type="text" value="2"/> = 
+	<input id="res" type="text">
+	<input class="red" type="button" value="Run" onclick="calculate();"></button>
+	<input type="button" value="Greeting" onclick="greeting();"></button>
+</body>
+</html>
