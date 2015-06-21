@@ -39,6 +39,21 @@
 				$scope.tasks.push({action: $scope.newAction, done:false});
 				$scope.newAction = '';
 			}
+			
+			// $scope.showChecked = true;
+			$scope.showChecked = false;			
+	});
+	
+	app.filter('filteredTasks', function(){
+		return function(tasks, showChecked){
+			var res = [];
+			angular.forEach(tasks, function(task){
+				if(!task.done || showChecked){
+					res.push(task);
+				}
+			});
+			return res;
+		};	
 	});
 	</script>
 	
@@ -64,7 +79,7 @@
                 </tr>
             </thead>
             <tbody>
-				<tr ng-repeat="task in tasks | orderBy: 'action'">
+				<tr ng-repeat="task in tasks | filteredTasks: showChecked | orderBy: 'action'">
 					<td>{{task.action}}</td>
 					<td><input type="checkbox" ng-model="task.done"></td>
 					<td>{{task.done}}</td>
