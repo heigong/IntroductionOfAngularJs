@@ -29,6 +29,13 @@
 				});
 				return count;
 			}
+			
+			$scope.warningLevelClass = function(){
+				if($scope.incompleteCount() > 2)
+					return 'label-warning';
+				
+				return 'label-success';
+			} 
 	});
 	</script>
 	
@@ -36,7 +43,7 @@
 <body ng-controller="TodoCtrl">
     <div class="page-header">
 		<h1>{{username}}'s To Do List
-		<span class="label label-default">{{incompleteCount()}}</span>
+		<span class="label" ng-class="warningLevelClass()">{{incompleteCount()}}</span>
 		</h1>
     </div>
     <div class="panel">
