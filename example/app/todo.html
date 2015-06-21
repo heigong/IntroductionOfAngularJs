@@ -64,7 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-				<tr ng-repeat="task in tasks">
+				<tr ng-repeat="task in tasks | orderBy: 'action'">
 					<td>{{task.action}}</td>
 					<td><input type="checkbox" ng-model="task.done"></td>
 					<td>{{task.done}}</td>
